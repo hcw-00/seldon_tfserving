@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata: 
+  name: tfserving-ingress 
+spec: 
+  rules: 
+  - http: 
+      paths:
+      - path: /
+        backend: 
+          serviceName: tfserving-default
+          servicePort: 8000
+      - path: /one
+        backend:
+          serviceName: tfserving-default-mnist-model 
+          servicePort: 9000
